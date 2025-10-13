@@ -120,7 +120,7 @@ main .logo-image {
 
 .content-box_for .text {
   flex: 2;
-  text-align: left;
+  text-align: center;
 }
 
 .content-box_for .image {
