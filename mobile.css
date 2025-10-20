@@ -1,0 +1,72 @@
+/* mobile.css — only applied when viewport is <= 700px */
+
+/* make hamburger visible and menu hidden by default */
+.hamburger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 0;
+  font-size: 1.3rem;
+  padding: 8px;
+  cursor: pointer;
+  margin-left: 8px;
+}
+
+/* hide the menu by default on mobile; JS toggles .show */
+.menu {
+  display: none;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  flex-direction: column;
+  gap: 0;
+  padding: 8px 6px 12px;
+  border-top: 1px solid rgba(0,0,0,0.05);
+  z-index: 999;
+}
+
+/* when JS toggles .show, display vertically */
+.menu.show {
+  display: flex;
+}
+
+/* menu link sizing for touch */
+.menu a {
+  padding: 12px;
+  margin: 6px 8px;
+  border-radius: 8px;
+  width: calc(100% - 16px);
+  text-align: center;
+  display: inline-flex;
+  justify-content: center;
+}
+
+/* slightly smaller logo on phones */
+.logo img {
+  height: 36px;
+}
+
+/* stack content boxes */
+.content-box_for,
+.content-box_udg {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* avoid footer-logo absolute overlap on small screens */
+.footer-logo img {
+  position: static;
+  margin: 0 0 8px 0;
+  display: inline-block;
+}
+
+/* ensure images don't overflow */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}

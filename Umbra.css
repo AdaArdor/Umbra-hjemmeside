@@ -121,7 +121,7 @@ main .logo-image {
 .content-box_for .text {
   flex: 2;
   text-align: center;
-}
+} 
 
 .content-box_for .image {
   flex: 1;
@@ -189,4 +189,37 @@ main .logo-image {
   font-size: 0.9rem;
   color: #000000;
   margin-top: 10px;
+}
+
+
+/* Hide hamburger button on desktop */
+.hamburger {
+  display: none; /* hide by default on desktop */
+}
+
+/* Show hamburger on small screens */
+@media (max-width: 700px) {
+  .hamburger {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+
+  /* Optional: style menu for mobile */
+  .menu {
+    display: none; /* hide menu initially on mobile */
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+  }
+
+  .menu.show {
+    display: flex; /* show when hamburger clicked */
+  }
 }
