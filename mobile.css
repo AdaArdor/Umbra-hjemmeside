@@ -2,16 +2,25 @@
 
 /* make hamburger visible and menu hidden by default */
 .hamburger {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  border: 0;
-  font-size: 1.3rem;
-  padding: 8px;
-  cursor: pointer;
-  margin-left: 8px;
-}
+    display: inline-flex;
+    position: absolute;      /* take it out of normal flow */
+    top: 10px;               /* distance from top of viewport/nav */
+    right: 12px;             /* distance from right edge */
+    z-index: 2000;           /* sit above nav and menu */
+    width: 44px;             /* larger hit area for touch */
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    border-radius: 8px;
+    border: none;
+    background-color: #f5f6f9; /* dark background; change to taste */
+    color: #030303;            /* icon/text color */
+    font-size: 1.25rem;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    -webkit-tap-highlight-color: transparent;
+  }
 
 /* hide the menu by default on mobile; JS toggles .show */
 .menu {
@@ -21,6 +30,7 @@
   left: 0;
   right: 0;
   background: #ffffff;
+  color: #000000;
   flex-direction: column;
   gap: 0;
   padding: 8px 6px 12px;
