@@ -188,22 +188,21 @@
   
   <!-- JAVASCRIPT TO SWITCH SECTIONS -->
 <script>
-  // 1️⃣ Global function for inline onclick
+  // -----------------------------
+  // 1️⃣ Section switching
   function showSection(sectionId) {
     const sections = document.querySelectorAll('.section');
-    sections.forEach(sec => sec.style.display = 'none'); // hide all
+    sections.forEach(sec => sec.style.display = 'none');
     const el = document.getElementById(sectionId);
-    if (el) el.style.display = 'block'; // show selected
+    if (el) el.style.display = 'block';
   }
 
-  // Show Start section on page load
   window.onload = function() {
     showSection('Start');
   };
-</script>
 
-<script>
-  // 2️⃣ Hamburger menu (private)
+  // -----------------------------
+  // 2️⃣ Hamburger menu
   (function() {
     const btn = document.querySelector('.hamburger');
     const menu = document.querySelector('.menu');
@@ -216,7 +215,6 @@
       btn.setAttribute('aria-expanded', expanded);
     });
 
-    // close menu when a link is clicked (mobile)
     menu.addEventListener('click', (e) => {
       if (e.target.tagName === 'A' && menu.classList.contains('show')) {
         menu.classList.remove('show');
@@ -224,7 +222,6 @@
       }
     });
 
-    // close menu if user clicks outside
     document.addEventListener('click', (e) => {
       if (!menu.contains(e.target) && !btn.contains(e.target) && menu.classList.contains('show')) {
         menu.classList.remove('show');
@@ -232,7 +229,6 @@
       }
     });
 
-    // ensure menu closed on resize to desktop
     window.addEventListener('resize', () => {
       if (window.innerWidth > 700 && menu.classList.contains('show')) {
         menu.classList.remove('show');
@@ -240,7 +236,32 @@
       }
     });
   })();
+
+  // -----------------------------
+  // 3️⃣ Toggle content boxes
+  const boxes = document.querySelectorAll('.content-box_udg');
+
+  boxes.forEach(box => {
+    const paragraph = box.querySelector('.text p');
+
+    box.addEventListener('click', () => {
+      const isExpanded = box.classList.contains('expanded');
+
+      if (isExpanded) {
+        // collapse
+        paragraph.style.maxHeight = "4.5em";
+        paragraph.style.overflow = "hidden";
+        box.classList.remove('expanded');
+      } else {
+        // expand
+        paragraph.style.maxHeight = "none";
+        paragraph.style.overflow = "visible";
+        box.classList.add('expanded');
+      }
+    });
+  });
 </script>
+
 
 
 

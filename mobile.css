@@ -70,3 +70,29 @@ img {
   height: auto;
   display: block;
 }
+
+
+@media (max-width: 700px) {
+  .logo-image {
+    max-width: 90%;      /* scale down to 90% of viewport width */
+    height: auto;        /* keep aspect ratio */
+    display: block;
+    margin: 0 auto;      /* center horizontally */
+  }
+}
+
+@media (max-width: 700px) {
+  /* disable hover effect on mobile */
+  .content-box_udg:hover .text p {
+    -webkit-line-clamp: 3; /* back to collapsed */
+    max-height: 4.5em;
+    overflow: hidden;
+  }
+
+  /* optional: expanded state via JS */
+  .content-box_udg.expanded .text p {
+    -webkit-line-clamp: unset;
+    max-height: none;
+    overflow: visible;
+  }
+}
