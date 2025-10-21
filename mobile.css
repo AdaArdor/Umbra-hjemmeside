@@ -1,28 +1,25 @@
-/* mobile.css — only applied when viewport is <= 700px */
 
-/* make hamburger visible and menu hidden by default */
 .hamburger {
     display: inline-flex;
-    position: absolute;      /* take it out of normal flow */
-    top: 10px;               /* distance from top of viewport/nav */
-    right: 12px;             /* distance from right edge */
-    z-index: 2000;           /* sit above nav and menu */
-    width: 44px;             /* larger hit area for touch */
+    position: absolute;  
+    top: 10px;              
+    right: 12px;             
+    z-index: 2000;           
+    width: 44px;            
     height: 44px;
     align-items: center;
     justify-content: center;
     padding: 6px;
     border-radius: 8px;
     border: none;
-    background-color: #f5f6f9; /* dark background; change to taste */
-    color: #030303;            /* icon/text color */
+    background-color: #f5f6f9; 
+    color: #030303;          
     font-size: 1.25rem;
     cursor: pointer;
     box-shadow: 0 2px 8px rgba(0,0,0,0.12);
     -webkit-tap-highlight-color: transparent;
   }
 
-/* hide the menu by default on mobile; JS toggles .show */
 .menu {
   display: none;
   position: absolute;
@@ -38,12 +35,10 @@
   z-index: 999;
 }
 
-/* when JS toggles .show, display vertically */
 .menu.show {
   display: flex;
 }
 
-/* menu link sizing for touch */
 .menu a {
   padding: 12px;
   margin: 6px 8px;
@@ -54,12 +49,10 @@
   justify-content: center;
 }
 
-/* slightly smaller logo on phones */
 .logo img {
   height: 36px;
 }
 
-/* stack content boxes */
 .content-box_for,
 .content-box_udg {
   flex-direction: column;
@@ -67,47 +60,41 @@
   text-align: center;
 }
 
-/* avoid footer-logo absolute overlap on small screens */
 .footer-logo img {
   position: static;
   margin: 0 0 8px 0;
   display: inline-block;
 }
 
-/* ensure images don't overflow */
 img {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
-
 @media (max-width: 700px) {
-  /* Shrink front page logo */
+  
   .section#Start .logo-image {
-    max-width: 80%;  /* adjust down if still too wide */
-    height: auto;    /* maintain aspect ratio */
+    max-width: 80%;  
+    height: auto;    
     display: block;
-    margin: 0 auto;  /* center */
+    margin: 0 auto; 
   }
 
-  /* Optional: also shrink the logo in the nav bar */
   nav .logo-image {
-    max-width: 120px; /* adjust as needed */
+    max-width: 120px; 
     height: auto;
   }
 }
 
-
 @media (max-width: 700px) {
-  /* disable hover effect on mobile */
+
   .content-box_udg:hover .text p {
-    -webkit-line-clamp: 3; /* back to collapsed */
+    -webkit-line-clamp: 3; 
     max-height: 4.5em;
     overflow: hidden;
   }
-
-  /* optional: expanded state via JS */
+ 
   .content-box_udg.expanded .text p {
     -webkit-line-clamp: unset;
     max-height: none;
