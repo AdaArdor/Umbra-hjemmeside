@@ -1,0 +1,391 @@
+  html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+}
+
+.logo img {
+  height: 50px;
+  width: auto;
+  margin-left: 10px;
+  margin-top: 20px;
+  display: block;
+}
+
+.menu a:hover {
+  color: #ff6600;
+}
+
+.basket-dropdown {
+  position: absolute;
+  top: 70px;
+  right: 20px;
+  width: 300px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  padding: 12px;
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+}
+
+.basket-dropdown.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+#basket-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#basket-items li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  list-style: none;
+}
+
+#basket-items li:last-child {
+  margin-bottom: 14px;
+}
+
+#checkout-button-dropdown {
+  width: 100%;
+  padding: 12px;
+  background: #015c0d;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#checkout-button-dropdown:hover {
+  background: #255921;
+}
+
+#checkout-button i {
+  font-size: 18px;  
+  color: #333;
+}
+
+.add-to-basket {
+  background-color: #015c0d;
+  color: #fcf7f7;
+  border: none;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.add-to-basket:hover {
+  background-color: #13543d;
+  transform: translateY(-2px);
+}
+
+.menu {
+  margin-top: 20px;
+  display: flex;
+  flex: 1;
+  justify-content: space-evenly;
+}
+
+.menu a {
+  color: #000000;
+  text-decoration: none;
+  font-size: 1rem;
+  flex: 1;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.menu a:hover {
+  background-color: #e4e1e1;
+  color: #000000;
+  transform: translateY(-2px);
+  cursor: pointer;
+}
+
+main {
+  flex: 1;
+  margin-top: 60px;
+  padding: 20px;
+}
+
+.section {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 1.6;
+}
+
+footer {
+  background-color: #e4e1e1;
+  color: #000000;
+  text-align: center;
+  padding: 15px 20px;
+  margin-top: auto;
+}
+
+
+footer a {
+  color: inherit;
+  text-decoration: none;
+}
+
+footer .social-links {
+  margin-top: 10px;
+}
+
+footer .social-links a {
+  color: #000000;
+  margin: 0 12px;
+  transition: color 0.3s ease;
+}
+
+footer .social-links a:hover {
+  color: #007bff; 
+}
+
+main .logo-image {
+  max-width: 500px;
+  height: auto;
+  display: block;
+  margin: 0 auto 20px;
+}
+
+/* Boxes til forfattere */
+.content-box_for {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f4f4f4;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 900px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.content-box_for .text {
+  flex: 2;
+  text-align: center;
+} 
+
+.content-box_for .image {
+  flex: 1;
+  text-align: right;
+}
+
+.content-box_for .image img {
+  max-width: 150px;
+  border-radius: 8px;
+}
+
+/* Boxes til udgivelser */
+.content-box_udg {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: #f4f4f4;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 900px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  cursor: pointer;
+  transition: transform 0.8s ease;
+}
+.content-box_udg:hover {
+  transform: translateY(-3px);
+}
+
+.content-box_udg .text h2 {
+  margin: 0 0 10px;
+}
+
+.content-box_udg .text p {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: all 0.4s ease;
+  max-height: 4.5em;
+}
+
+.content-box_udg:hover .text p {
+  -webkit-line-clamp: unset;
+  max-height: none;
+  overflow: visible;
+}
+
+.content-box_udg img {
+  max-width: 120px;
+  border-radius: 8px;
+  margin-left: 20px;
+}
+
+.footer-logo img {
+  position: absolute;
+  left: 0;
+  width: 40px; 
+  margin-left: 20px;
+}
+
+.footer-text {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #000000;
+  margin-top: 10px;
+}
+
+
+
+.hamburger {
+  display: none;
+}
+
+
+@media (max-width: 700px) {
+  .hamburger {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+
+  
+  .menu {
+    display: none; 
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+  }
+
+  .menu.show {
+    display: flex; 
+  }
+}
+
+/* Boxes til køb */
+
+.grundboks_køb {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.content-box_køb {
+  background-color: #f4f4f4;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.content-box_køb img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  box-shadow: #000000;
+}
+
+.text h2 {
+  font-size: 16px;
+  margin: 4px 0;
+}
+
+.text h4 {
+  font-size: 14px;
+  margin: 2px 0;
+}
+
+.køb-funktion {
+  margin-top: 12px;
+}
+
+.buy-button {
+  display: inline-block;
+  background-color: #3a29ee;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.buy-button:hover {
+  background-color: #5146d9;
+}
+
+.basket-notification {
+  position: fixed;
+  top: 70px;
+  right: 30px;
+  background-color: #f4f4f4;
+  color: rgb(3, 3, 3);
+  padding: 14px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  opacity: 0;
+  transform: translateY(-20px);
+  pointer-events: none;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  z-index: 1000;
+}
+
+.basket-notification.show {
+  opacity: 1;
+  transform: translateY(0);
+}
