@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="Umbra.css">
   <link rel="stylesheet" href="mobile.css" media="(max-width:700px)">
 </head>
-
 <body>
 
   <!-- NAVBAR -->
@@ -22,247 +21,311 @@
       <a href="#" onclick="showSection('Forfattere')">Forfattere</a>
       <a href="#" onclick="showSection('Køb')">Køb</a>
       <a href="#" onclick="showSection('Kontakt')">Kontakt</a>
+      <a href="#" id="checkout-button" aria-label="Basket">
+        <i class="fas fa-shopping-basket"></i>
+      </a>
     </div>
   </nav>
 
+  <!-- BASKET DROPDOWN -->
+  <div id="basket-dropdown" class="basket-dropdown">
+    <ul id="basket-items"></ul>
+    <p id="basket-total" style="text-align:right; margin-top:8px; font-weight:bold;"></p>
+    <button id="checkout-button-dropdown">Checkout</button>
+  </div>
+
   <!-- MAIN CONTENT -->
   <main>
-    <!-- START / HOME SECTION -->
+    <!-- START -->
     <section id="Start" class="section">
       <figure>
         <img src="umbra_logo.png" alt="Forlaget Umbra Logo" class="logo-image">
       </figure>
       <p class="centered">
-        Forlaget Umbra er et nystartet aarhusiansk forlag. Vi er stiftet med en ambition om at kunne tilbyde en bred palet af solide bøger inden for skønlitteratur, filosofi og det humanistiske område.
+        Forlaget Umbra er et nystartet aarhusiansk forlag. Vi tilbyder en bred palet af solide bøger inden for skønlitteratur, filosofi og det humanistiske område.
       </p>
     </section>
 
-    <!-- OTHER SECTIONS -->
+    <!-- UDGIVELSER -->
     <section id="Udgivelser" class="section" style="display:none;">
       <h1>Udgivelser</h1>
       <div class="content-box_udg">
-      <div class="text">
-        <h2>Mindre engle - narrater</h2>
-        <h5>Antoine Volodine</h5>
-        <div class="reveal">
-        <p>'Mindre Engle - narrater' er Antoine Volodines første bog oversat til dansk. Romanen er en del af hans
-        post-eksotiske univers, hvor fortællingerne foregår i en post-apokalyptisk verden befolket af overlevende,
-        der kæmper for at finde mening og håb i en ødelagt tilværelse. Gennem en række sammenvævede historier
-        udforsker Volodine temaer som tab, overlevelse og menneskets evne til at finde skønhed i det ødelagte.<br><br>
-        Bogen er oversat af Peer Bundgaard.</p>
+        <div class="text">
+          <h2>Mindre engle - narrater</h2>
+          <h5>Antoine Volodine</h5>
+          <div class="reveal">
+            <p>'Mindre Engle - narrater' er Antoine Volodines første bog oversat til dansk. Romanen er en del af hans
+            post-eksotiske univers, hvor fortællingerne foregår i en post-apokalyptisk verden befolket af overlevende,
+            der kæmper for at finde mening og håb i en ødelagt tilværelse. Gennem en række sammenvævede historier
+            udforsker Volodine temaer som tab, overlevelse og menneskets evne til at finde skønhed i det ødelagte.<br><br>
+            Bogen er oversat af Peer Bundgaard.</p>
+          </div>
+        </div>
+        <div class="image">
+          <img src="Mindre_engle_cover.png" alt="Mindre engle - narrater">
         </div>
       </div>
-      <div class="image">
-        <img src="Mindre_engle_cover.png" alt="Mindre engle - narrater">
-      </div>
-    </div>
-    <br><br><br>
+      <br><br><br>
+
       <h1>Kommende udgivelser</h1>
       <div class="content-box_udg">
-      <div class="text">
-        <h2>1177 f.Kr.: Året, hvor civilisationen kollapsede</h2>
-        <h5>Eric H. Cline</h5>
-        <div class="reveal">
-        <p>'1177 f.Kr.: Året, hvor civilisationen kollapsede' er en grundlæggende undersøgelse af de faktorer,
-            der førte til sammenbruddet af de store civilisationer i Ægæerhavet, det østlige Middelhav og Nærøsten.
-            Bogen udforsker de sociale,
-            økonomiske og miljømæssige forhold, der bidrog til denne krise, og hvordan den påvirkede efterfølgende
-            historiske udviklinger. Gennem en kombination af arkæologiske fund og historiske kilder præsenterer
-            forfatteren en overbevisende fortælling om en af de mest tumultariske perioder i menneskehedens historie.
-            <br><br>Bogen er oversat Nikolaj Jacobsen og Tobias Omø Kirkegaard Mygind</p>
+        <div class="text">
+          <h2>1177 f.Kr.: Året, hvor civilisationen kollapsede</h2>
+          <h5>Eric H. Cline</h5>
+          <div class="reveal">
+            <p>'1177 f.Kr.: Året, hvor civilisationen kollapsede' er en grundlæggende undersøgelse af de faktorer,
+              der førte til sammenbruddet af de store civilisationer i Ægæerhavet, det østlige Middelhav og Nærøsten.
+              Bogen udforsker de sociale, økonomiske og miljømæssige forhold, der bidrog til denne krise, og hvordan den påvirkede efterfølgende historiske udviklinger.
+              <br><br>Bogen er oversat af Nikolaj Jacobsen og Tobias Omø Kirkegaard Mygind</p>
+          </div>
+        </div>
+        <div class="image">
+          <img src="placeholder.png" alt="placeholder">
         </div>
       </div>
-      <div class="image">
-        <img src="placeholder.png" alt="placeholder">
-      </div>
-    </div>
-    <div class="content-box_udg">
-      <div class="text">
-        <h2>Godzilla & Godzilla Raids Again</h2>
-        <h5>Shigeru Kayama</h5>
-        <div class="reveal">
-        <p>Shigeru Kayamas Godzilla-roman 'Godzilla & Godzilla Raids Again' udforsker temaer som kaos, overlevelse og
+
+      <div class="content-box_udg">
+        <div class="text">
+          <h2>Godzilla & Godzilla Raids Again</h2>
+          <h5>Shigeru Kayama</h5>
+          <div class="reveal">
+            <p>Shigeru Kayamas Godzilla-roman 'Godzilla & Godzilla Raids Again' udforsker temaer som kaos, overlevelse og
             menneskets forhold til naturen i skyggen af atombomben. De blev skrevet i 1955 som romanudgaver af de to
             første Godzilla-film, som Kayama også var med til at tekstudvikle.
             <br><br>Bogen er oversat af Mads Schanz.</p>
+          </div>
+        </div>
+        <div class="image">
+          <img src="placeholder.png" alt="placeholder">
         </div>
       </div>
-      <div class="image">
-        <img src="placeholder.png" alt="placeholder">
-      </div>
-    </div>
-    <div class="content-box_udg">
-      <div class="text">
-        <h2>Stjernens navn er Malurt - tekster</h2>
-        <h5>Frederik Lind Köppen</h5>
-        <div class="reveal">
-        <p>'Stjernens navn er Malurt - tekster' er Frederik Lind Köppens debutudgivelse. Det er en lyriksamling, der
-          udforsker temaer som identitet, eksistens og menneskets forhold til naturen i en i stigende grad
-          globaliseret og deterritorialiseret verden.
-        </p>
+
+      <div class="content-box_udg">
+        <div class="text">
+          <h2>Stjernens navn er Malurt - tekster</h2>
+          <h5>Frederik Lind Köppen</h5>
+          <div class="reveal">
+            <p>'Stjernens navn er Malurt - tekster' er Frederik Lind Köppens debutudgivelse. Det er en lyriksamling, der
+            udforsker temaer som identitet, eksistens og menneskets forhold til naturen i en i stigende grad globaliseret verden.</p>
+          </div>
+        </div>
+        <div class="image">
+          <img src="placeholder.png" alt="placeholder">
         </div>
       </div>
-      <div class="image">
-        <img src="placeholder.png" alt="placeholder">
-      </div>
-    </div>
     </section>
 
+    <!-- FORFATTERE -->
     <section id="Forfattere" class="section" style="display:none;">
       <h1>Forfattere</h1>
       <div class="content-box_for">
-      <div class="text">
-        <h2>Antoine Volodine</h2>
-        <p>Antoine Volodine (f. 1950) er en fransk-russisk forfatter. Han er kendt for sine eksperimenterende og
-            virkelighedsundergravende romaner. Han kalder sin egen stil for post-eksotisme. På forlaget Umbra er
-            udgivet 'Mindre Engle - narrater' (Des anges mineurs).</p>
+        <div class="text">
+          <h2>Antoine Volodine</h2>
+          <p>Antoine Volodine (f. 1950) er en fransk-russisk forfatter. Han er kendt for sine eksperimenterende og
+          virkelighedsundergravende romaner. Han kalder sin egen stil for post-eksotisme. På forlaget Umbra er
+          udgivet 'Mindre Engle - narrater' (Des anges mineurs).</p>
+        </div>
+        <div class="image">
+          <img src="Volodine_foto.webp" alt="Antoine Volodine">
+        </div>
       </div>
-      <div class="image">
-        <img src="Volodine_foto.webp" alt="Antoine Volodine">
+
+      <div class="content-box_for">
+        <div class="text">
+          <h2>Shigeru Kayama</h2>
+          <p>Shigeru Kayama (1904-1975) er en japansk forfatter, der er kendt for sine værker inden for science fiction og
+          fantasy. På forlaget Umbra er udgivet 'Godzilla & Godzilla Raids Again' (ゴジラ 東京・大阪篇).</p>
+        </div>
+        <div class="image">
+          <img src="Kayama_foto.png" alt="Shigeru Kayama">
+        </div>
       </div>
-    </div>
-    <div class="content-box_for">
-      <div class="text">
-        <h2>Shigeru Kayama</h2>
-        <p>Shigeru Kayama (1904-1975) er en japansk forfatter, der er kendt for sine værker inden for science fiction og
-            fantasy. Han har skrevet flere romaner og noveller, der udforsker temaer som teknologi, samfund og menneskelig
-            natur. På forlaget Umbra er udgivet 'Godzilla & Godzilla Raids Again' (ゴジラ 東京・大阪篇).</p>
+
+      <div class="content-box_for">
+        <div class="text">
+          <h2>Eric H. Cline</h2>
+          <p>Eric H. Cline (f. 1960) er en amerikansk arkæolog og historiker, der specialiserer sig i oldtidens
+          civilisationer og deres sammenbrud. På forlaget Umbra er udgivet '1177 f.Kr.: Året, hvor civilisationen kollapsede'.</p>
+        </div>
+        <div class="image">
+          <img src="Cline_foto.png" alt="Eric H. Cline">
+        </div>
       </div>
-      <div class="image">
-        <img src="Kayama_foto.png" alt="Shigeru Kayama">
-      </div>
-    </div>
-    <div class="content-box_for">
-      <div class="text">
-        <h2>Eric H. Cline</h2>
-        <p>Eric H. Cline (f. 1960) er en amerikansk arkæolog og historiker, der specialiserer sig i oldtidens
-            civilisationer og deres sammenbrud. Han har skrevet flere bøger om emnet, herunder '1177 f.Kr.: Året, hvor
-            civilisationen kollapsede' (1177 B.C.: The Year Civilization Collapsed), som er udgivet på forlaget Umbra.</p>
-      </div>
-      <div class="image">
-        <img src="Cline_foto.png" alt="Eric H. Cline">
-      </div>
-    </div>
-    <div class="content-box_for">
-      <div class="text">
-        <h2>Frederik Lind Köppen</h2>
-        <p>Frederik Lind Köppen (f. 1993) er en dansk digter bosiddende i København. Hans debut, 'Stjernens navn er Malurt -
-            tekster' er udgivet på forlaget Umbra.
-        </p>
-      </div>
-      <div class="image">
-        <img src="Köppen_foto.jpg" alt="Frederik Lind Köppen">
+
+      <div class="content-box_for">
+        <div class="text">
+          <h2>Frederik Lind Köppen</h2>
+          <p>Frederik Lind Köppen (f. 1993) er en dansk digter bosiddende i København. Hans debut, 'Stjernens navn er Malurt - tekster', er udgivet på forlaget Umbra.</p>
+        </div>
+        <div class="image">
+          <img src="Köppen_foto.png" alt="Frederik Lind Köppen">
+        </div>
       </div>
     </section>
 
+    <!-- KØB -->
     <section id="Køb" class="section" style="display:none;">
       <h1>Køb</h1>
-      <p>Her kan du købe bøger direkte fra vores forlag.</p>
+      <p>Her kan du købe vores bøger direkte. Alle køb er med fri fragt med PostNord til nærmeste pakkeshop.
+        <br>Vores bøger er også tilgængelige hos bl.a. Bog og Idé, Saxo og Gucca.<br>Hvis du ønsker
+      at købe bøger på vegne af en institution, bedes du kontakte os på mail.</p>
+      <div class="grundboks_køb">
+        <div class="content-box_køb" data-name="Mindre engle - narrater" data-price="250">
+          <div class="text">
+            <h3>Mindre engle - narrater</h3>
+            <h5>Antoine Volodine</h5>
+            <div class="image"><img src="Mindre_engle_cover.png" alt="Mindre engle - narrater"></div>
+            <p>2025. Hæftet med flapper. 234 sider.<br>Pris: 250 DKK inkl. moms.</p>
+          </div>
+          <div class="køb-funktion">
+            <button class="add-to-basket" data-name="Mindre engle - narrater" data-price="250">Læg i kurv</button>
+          </div>
+        </div>
+
+        <div class="content-box_køb" data-name="1177 f.Kr." data-price="250">
+          <div class="text">
+            <h3>1177 f.Kr.</h3>
+            <h5>Eric H. Cline</h5>
+            <div class="image"><img src="1177_cover.png" alt="1177 cover"></div>
+            <p>2026. Paperback.<br>Pris: 250 DKK inkl. moms.</p>
+          </div>
+          <div class="køb-funktion">
+            <button class="add-to-basket" data-name="1177 f.Kr." data-price="250" disabled>Kommer snart</button>
+          </div>
+        </div>  
+
+        <div class="content-box_køb" data-name="Godzilla" data-price="250">
+          <div class="text">
+            <h3>Godzilla</h3>
+            <h5>Shigeru Kayama</h5>
+            <div class="image"><img src="Godzilla_cover.png" alt="Godzilla cover"></div>
+            <p>2025. Paperback.<br>Pris: 250 DKK inkl. moms.</p>
+          </div>
+          <div class="køb-funktion">
+            <button class="add-to-basket" data-name="Godzilla" data-price="250" disabled>Kommer snart</button>
+          </div>
+        </div>
+      </div>
     </section>
 
+    <!-- KONTAKT -->
     <section id="Kontakt" class="section" style="display:none;">
       <h1>Kontakt</h1>
-      <p>Forlaget kan kontaktes på kontakt@forlaget-umbra.dk. Vi modtager gerne manuskripter, som kan sendes til
-        denne e-mailadresse.<br><br>
-        Post kan sendes til: Forlaget Umbra, Skovvangsvej 220 kld. 8200 Aarhus N</p>
+      <p>Forlaget kan kontaktes på kontakt@forlaget-umbra.dk. Manuskripter kan sendes til denne e-mailadresse.<br><br>
+      Post: Forlaget Umbra, Skovvangsvej 220 kld. 8200 Aarhus N</p>
     </section>
   </main>
 
   <!-- FOOTER -->
   <footer>
     <div class="footer-logo">
-        <img src="ikon_sort.png" alt="Forlaget Umbra">
-      </div>
-    <p class="footer-text">&copy; 2025 Forlaget Umbra | kontakt@forlaget-umbra.dk | Forlaget Umbra ApS | CVR: 44904144 |
-        Skovvangsvej 220 kld. 8200 Aarhus N</p>
+      <img src="ikon_sort.png" alt="Forlaget Umbra">
+    </div>
+    <p class="footer-text">&copy; 2025 Forlaget Umbra | kontakt@forlaget-umbra.dk | Forlaget Umbra ApS | CVR: 44904144 | Skovvangsvej 220 kld. 8200 Aarhus N</p>
     <div class="social-links">
-    <a href="https://www.facebook.com/profile.php?id=61582072804631" target="_blank" aria-label="Facebook">
-      <i class="fab fa-facebook fa-2x"></i>
-    </a>
-    <a href="https://www.instagram.com/forlaget.umbra/" target="_blank" aria-label="Instagram">
-      <i class="fab fa-instagram fa-2x"></i>
-    </a>
-  </div>
+      <a href="https://www.facebook.com/profile.php?id=61582072804631" target="_blank" aria-label="Facebook">
+        <i class="fab fa-facebook fa-2x"></i>
+      </a>
+      <a href="https://www.instagram.com/forlaget.umbra/" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram fa-2x"></i>
+      </a>
+    </div>
   </footer>
 
-  
-  <!-- JAVASCRIPT TO SWITCH SECTIONS -->
-<script>
-  // Section switching
-  function showSection(sectionId) {
-    const sections = document.querySelectorAll('.section');
-    sections.forEach(sec => sec.style.display = 'none');
-    const el = document.getElementById(sectionId);
-    if (el) el.style.display = 'block';
-  }
+  <div id="basket-notification" class="basket-notification"></div>
 
-  window.onload = function() {
-    showSection('Start');
-  };
+  <script>
+    function showSection(sectionId) {
+      document.querySelectorAll('.section').forEach(sec => sec.style.display='none');
+      const el = document.getElementById(sectionId);
+      if(el) el.style.display='block';
+    }
 
-  
-  // Hamburger menu
-  (function() {
-    const btn = document.querySelector('.hamburger');
-    const menu = document.querySelector('.menu');
-    if (!btn || !menu) return;
+    let basket = [];
 
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      menu.classList.toggle('show');
-      const expanded = menu.classList.contains('show');
-      btn.setAttribute('aria-expanded', expanded);
-    });
+    function showNotification(message){
+      const n = document.getElementById("basket-notification");
+      n.textContent = message; n.classList.add("show");
+      setTimeout(()=> n.classList.remove("show"),3000);
+    }
 
-    menu.addEventListener('click', (e) => {
-      if (e.target.tagName === 'A' && menu.classList.contains('show')) {
-        menu.classList.remove('show');
-        btn.setAttribute('aria-expanded', 'false');
+    function renderBasketItems(){
+      const itemsList = document.getElementById("basket-items");
+      const basketTotal = document.getElementById("basket-total");
+      const checkoutButtonDropdown = document.getElementById("checkout-button-dropdown");
+
+      itemsList.innerHTML = "";
+      if(basket.length===0){ 
+        itemsList.innerHTML="<li>Kurven er tom.</li>"; 
+        basketTotal.textContent=""; 
+        checkoutButtonDropdown.style.display="none";
+        return; 
       }
-    });
 
-    document.addEventListener('click', (e) => {
-      if (!menu.contains(e.target) && !btn.contains(e.target) && menu.classList.contains('show')) {
-        menu.classList.remove('show');
-        btn.setAttribute('aria-expanded', 'false');
+      checkoutButtonDropdown.style.display="block";
+      let total=0;
+      basket.forEach(item=>{
+        const li=document.createElement("li");
+        li.style.display="flex"; li.style.justifyContent="space-between"; li.style.alignItems="center";
+        li.style.backgroundColor="#f4f4f4"; li.style.padding="10px"; li.style.borderRadius="6px"; li.style.marginBottom="6px";
+
+        const nameSpan=document.createElement("span"); nameSpan.textContent=item.name;
+        const qtySpan=document.createElement("span"); qtySpan.textContent=`x${item.quantity}`;
+
+        li.appendChild(nameSpan); li.appendChild(qtySpan);
+        itemsList.appendChild(li);
+
+        total+=item.price*item.quantity;
+      });
+      basketTotal.textContent=`Total: ${total.toFixed(2)} DKK`;
+    }
+
+    document.addEventListener("DOMContentLoaded",()=>{
+      showSection('Start');
+
+      const btn = document.querySelector('.hamburger');
+      const menu = document.querySelector('.menu');
+      if(btn && menu){
+        btn.addEventListener('click',()=>{ menu.classList.toggle('show'); btn.setAttribute('aria-expanded',menu.classList.contains('show'));});
+        menu.addEventListener('click', e=>{ if(e.target.tagName==='A' && menu.classList.contains('show')){ menu.classList.remove('show'); btn.setAttribute('aria-expanded','false'); }});
+        document.addEventListener('click',e=>{ if(!menu.contains(e.target) && !btn.contains(e.target) && menu.classList.contains('show')){ menu.classList.remove('show'); btn.setAttribute('aria-expanded','false'); }});
+        window.addEventListener('resize',()=>{ if(window.innerWidth>700 && menu.classList.contains('show')){ menu.classList.remove('show'); btn.setAttribute('aria-expanded','false'); }});
       }
+
+      document.querySelectorAll(".add-to-basket").forEach(btn=>{
+        btn.addEventListener("click",()=>{
+          const name=btn.dataset.name;
+          const price=parseFloat(btn.dataset.price);
+          const existing=basket.find(item=>item.name===name);
+          if(existing){ existing.quantity++; } else { basket.push({name,price,quantity:1}); }
+          showNotification(`"${name}" blev lagt i kurven.`);
+          renderBasketItems();
+        });
+      });
+
+      const basketDropdown=document.getElementById("basket-dropdown");
+      const basketIcon=document.getElementById("checkout-button");
+      basketIcon.addEventListener("click",(e)=>{
+        e.preventDefault();
+        if(basketDropdown.classList.contains("show")) basketDropdown.classList.remove("show");
+        else { renderBasketItems(); basketDropdown.classList.add("show"); }
+      });
+
+      const checkoutButtonDropdown=document.getElementById("checkout-button-dropdown");
+      checkoutButtonDropdown.addEventListener("click",async()=>{
+        if(basket.length===0) return alert("Kurven er tom.");
+        try{
+          const response=await fetch("https://umbra-stripe-backend.onrender.com/create-checkout-session",{
+            method:"POST",
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify({ items:basket.map(item=>({name:item.name,price:item.price,quantity:item.quantity})) })
+          });
+          if(!response.ok){ const err=await response.json(); return alert(`Error: ${err.error}`);}
+          const data=await response.json();
+          window.location.href=data.url;
+        }catch(err){console.error(err); alert("Failed to create checkout session.");}
+      });
     });
-
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 700 && menu.classList.contains('show')) {
-        menu.classList.remove('show');
-        btn.setAttribute('aria-expanded', 'false');
-      }
-    });
-  })();
-
-
-  // Toggle content boxes
-  const boxes = document.querySelectorAll('.content-box_udg');
-
-  boxes.forEach(box => {
-    const paragraph = box.querySelector('.text p');
-
-    box.addEventListener('click', () => {
-      const isExpanded = box.classList.contains('expanded');
-
-      if (isExpanded) {
-        // collapse
-        paragraph.style.maxHeight = "4.5em";
-        paragraph.style.overflow = "hidden";
-        box.classList.remove('expanded');
-      } else {
-        // expand
-        paragraph.style.maxHeight = "none";
-        paragraph.style.overflow = "visible";
-        box.classList.add('expanded');
-      }
-    });
-  });
-</script>
-
-
-
-
+  </script>
 </body>
 </html>
