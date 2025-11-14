@@ -4,15 +4,8 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import Stripe from "stripe";
-import path from "path";
-import { fileURLToPath } from "url";
 import bodyParser from "body-parser"; // needed for webhook raw body
-
-// --------------------
-// Setup paths & Stripe
-// --------------------
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+import cors from "cors";
 
 const app = express();
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
@@ -22,10 +15,16 @@ console.log("Stripe key loaded:", !!process.env.STRIPE_SECRET_KEY);
 // --------------------
 // Middleware
 // --------------------
-app.use(express.static(path.join(__dirname, "public")));
-app.use(express.json()); // JSON bodies
-// Webhooks need raw body
-app.use("/webhook", bodyParser.raw({ type: "application/json" }));
+// Enable CORS for GitHub Pages and your custom domain
+app.use(cors({
+  origin: [
+    "https://AdaArdor.github.io",
+    "https://www.forlaget-umbra.dk"
+  ]
+}));
+
+app.use(express.json()); // parse JSON bodies
+app.use("/webhook", bodyParser.raw({ type: "application/json" })); // Stripe webhook
 
 // --------------------
 // Test Stripe key
@@ -51,7 +50,7 @@ app.post("/create-checkout-session", async (req, res) => {
         quantity: item.quantity,
       })),
       shipping_address_collection: {
-        allowed_countries: ["DK"], // add your countries
+        allowed_countries: ["DK"],
       },
       success_url: "https://www.forlaget-umbra.dk/success.html?session_id={CHECKOUT_SESSION_ID}",
       cancel_url: "https://www.forlaget-umbra.dk/cancel.html",
@@ -59,7 +58,7 @@ app.post("/create-checkout-session", async (req, res) => {
 
     res.json({ url: session.url });
   } catch (e) {
-    console.error(e);
+    console.error("Error creating checkout session:", e);
     res.status(500).json({ error: e.message });
   }
 });
@@ -84,11 +83,11 @@ app.get("/checkout-session", async (req, res) => {
 });
 
 // --------------------
-// Stripe Webhook (for storing info in DB)
+// Stripe Webhook
 // --------------------
 app.post("/webhook", (req, res) => {
   const sig = req.headers["stripe-signature"];
-  const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET; // set in your .env
+  const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET; // set on Render
   let event;
 
   try {
@@ -98,25 +97,21 @@ app.post("/webhook", (req, res) => {
     return res.status(400).send(`Webhook Error: ${err.message}`);
   }
 
-  // Handle the checkout.session.completed event
   if (event.type === "checkout.session.completed") {
     const session = event.data.object;
 
-    // session.shipping contains shipping address
-    // session.customer_details contains name, email, phone
     console.log("Payment succeeded!");
     console.log("Shipping:", session.shipping);
     console.log("Customer:", session.customer_details);
 
-    // TODO: store session info in your SQL database
-    // e.g., INSERT INTO orders(...) VALUES(...)
+    // TODO: store session info in your database
   }
 
   res.json({ received: true });
 });
 
 // --------------------
-// Start server
+// Start server (Render uses process.env.PORT)
 // --------------------
-const PORT = 3000;
-app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
